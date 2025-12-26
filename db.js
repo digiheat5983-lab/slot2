@@ -1,7 +1,18 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const fs = require('fs');
+
 const dbFile = path.join(__dirname, 'casino.db');
-const db = new sqlite3.Database(dbFile);
+
+// Ensure parent directory exists
+try { fs.mkdirSync(path.dirname(dbFile), { recursive: true }); } catch (e) {}
+
+const db = new sqlite3.Database(dbFile, sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
+  if (err) {
+    console.error('Failed to open SQLite DB at', dbFile, err);
+    process.exit(1);
+  }
+});
 
 function init() {
   db.serialize(() => {
