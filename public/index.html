@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mobile Slot Casino</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="app">
+  <h1>Slot Casino (Mobile)</h1>
+  <div id="auth">
+    <div id="me"></div>
+    <div id="forms">
+      <input id="email" placeholder="Email" />
+      <input id="password" type="password" placeholder="Password" />
+      <div class="row">
+        <button id="btnRegister">Register</button>
+        <button id="btnLogin">Login</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="casino" class="hidden">
+    <div class="topbar">
+      <div id="balance">Balance: —</div>
+      <button id="btnLogout">Logout</button>
+    </div>
+
+    <div class="game-select">
+      <button class="gamebtn" data-game="1">Game 1</button>
+      <button class="gamebtn" data-game="2">Game 2</button>
+      <button class="gamebtn" data-game="3">Game 3</button>
+    </div>
+
+    <div class="controls">
+      <input id="bet" type="number" value="1" min="1" />
+      <button id="spin">Spin</button>
+    </div>
+
+    <div id="grid" class="grid"></div>
+    <div id="msg" class="msg"></div>
+  </div>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
